@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 
 const server = express();
-const { PORT } = process.env;
+const { API_KEY, PORT } = process.env;
 
 server.use(express.static(path.resolve(__dirname + '/react-ui/build')));
 
