@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fetch = require("node-fetch");
 const express = require('express');
 const path = require('path');
 
@@ -12,6 +13,16 @@ server.get('/heartbeat',(req, res) => {
 "is": "working"
     })
 });
+
+server.get("/location/:zip", async (req, res) => {
+    const {zip} = req.params;
+    const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${API_KEY}&units=imperial`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+        res.json( data )
+})
 
 server.get('*', (req, res) =>{
     res.sendFile(path.resolve(_dirname + './react-ui/build/index.html'));
