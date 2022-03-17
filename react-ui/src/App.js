@@ -1,26 +1,22 @@
-<h1>Moody Bluez Weather</h1>
-//import './App.css';
-//import React, { useEffect, useState } from "react";
-
-//const [lat, setLat] = useState([]);
-//const [long, setLong] = useState([]);
-
-//useEffect (() => {
- // navigator.geolocation.getCurrentPosition(function(position){
-   // setLat(position.coords.latitude);
-    //setLong(position.coords.longitude);
-      //});
-     
-      //console.log("Latitude is:", lat)
-      //console.log("Longitude is:", long)
-//}, [lat, long]);
-
+import React from 'react';
+import './App.css';
 
 
 function App() {
   return (
     <div className="App">
-      
+      <header className="App-header">
+       <h1>Moody Bluez Weather App</h1>
+      </header>
+    
+      <main>
+        
+      </main>
+      <footer>
+        TJ Swinson built in 2022
+      </footer>
+
+
     </div>
   );
 }
