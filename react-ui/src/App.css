@@ -39,7 +39,7 @@ main {
 }
 footer {
   padding: 2px;
-  min-height: 100px;
+  min-height: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;

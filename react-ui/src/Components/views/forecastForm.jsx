@@ -1,24 +1,40 @@
 import { useState } from "react";
 
-const ForecastForm = ({ action, data}) => {
-    const { zipCode } = data;
+const ForecastForm = () => {
+    
 
-    const [fieldValue, setFieldValue] = useState('');
+    const [zipCode, setZipCode] = useState('');
 
 const handleChange = e => {
     const target = e.target.value;
-    setFieldValue(target);
+    setZipCode(target);
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();
+      
+  
+  
+    fetch(`http://localhost:8080/location/${zipCode}`)
+    .then(data => data.json())
+    .then(response => {
+      console.log(response)
+    })
+  }
+  
+
     return (
-    <form onSubmit={e => action(e, zipCode === fieldValue)}>
+    <form onSubmit={handleSubmit}> 
       <div className="forecast">
-        <label>{zipCode}</label>
-        <input onChange={handleChange} />
+        <label> Please enter zip code</label>
+        <input onChange={handleChange} value = {zipCode} />
       </div>
       <button>Submit</button>
-    </form>
+      <div className="weather">
+
+      </div>
+    </form>  
   )
 };
 
-export default QuestionForm;
+export default ForecastForm;
